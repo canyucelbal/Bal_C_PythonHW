@@ -1,21 +1,26 @@
 #import the random package so we can generate a randon AI choice
 from random import randint
-from gameFunctions import winlose, gameVars, compare
+from gameFunctions import winlose
+from gameFunctions import gameVars
+from gameFunctions import compare
 
 
 while gameVars.player is False:
-	print("\n===============================")
-	print("Computer Lives:", gameVars.computer_lives, "/", gameVars.total_lives)
-	print("Player Lives:", gameVars.player_lives, "/", gameVars.total_lives)
-	print("===============================")
-	print("Choose your weapon!\n")
-	player=input("choose rock, paper or scissors: \n")
+	print("*********************************\n")
+	print("player lives: ", gameVars.player_lives, "/",gameVars.total_lives,"\n")
+	print("computer lives: ", gameVars.computer_lives, "/",gameVars.total_lives,"\n")
+	print("choose your weapon!\n")
+	print("*********************************\n")
 
+	gameVars.player = input("choose rock, paper or scissors\n")
+
+	print("computer chose ", gameVars.computer, "\n")
+	print("player choose ", gameVars.player, "\n")
 	#start doing some logic and condition checking
 	#print("\n computer: ", computer, "\n player: " , player )
 
 	# -- this is where you would do the compare stuff
-	open(compare.compareChoices)
+	compare.compareChoices(gameVars.computer,gameVars.player)
 	
 	#compare.compareChoices()
 	
@@ -72,7 +77,7 @@ while gameVars.player is False:
 		# 	print("Make a valid choice. Yes or no!")
 			
 	elif gameVars.computer_lives is 0:
-		winlose.winorlose("won")
+		winlose.winorlose("win")
 		#print("You won! Would you like to play again?")
 		# choice = input("Y / N?")
 
@@ -89,8 +94,7 @@ while gameVars.player is False:
 		# 	print("Make a valid choice. Yes or no!")
 		# 	choice = input("Y / N?")
 	else:
-		player = False
-		gameVars.computer = gameVars.choices [randint(0,2)]
-	#else:
+		gameVars.player = False
+		gameVars.computer = gameVars.choices[randint(0, 2)]	#else:
 		#player = False
 		#computer=choices[randint(0,2)]
