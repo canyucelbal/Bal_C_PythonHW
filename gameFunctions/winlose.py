@@ -2,18 +2,20 @@ from random import randint
 from gameFunctions import gameVars
 
 def winorlose(status):
-	print("called win or lose function", status, "\n")
-	print("You", status, "! Would you like to play again?")
-	choice = input("Y / N?")
+	print("******************")
+	print("You",status, "!Would you like to play again")
+	choice = input("Y / N? ")
+	print(choice)
 
-	if choice == "Y" or choice == "y":
+	if (choice is "Y") or (choice is "y"):
 		#reset the game and start all over again
-		gameVars.player_lives = 1
-		gameVars.computer_lives = 1
+		gameVars.player_lives= 5
+		gameVars.computer_lives= 5
+		gameVars.total_lives= 5
 		gameVars.player = False
-		gameVars.computer = gameVars.choices[randint(0, 2)]
+		gameVars.computer = gameVars.choices[randint(0,2)]
 
-	elif choice == "N" or choice == "n":
+	elif (choice is "N") or (choice is "n"):
 		print("You chose to quit quitter!")
 		exit()
 	else:
